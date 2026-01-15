@@ -18,13 +18,31 @@ class TadoClient():
         self.access_token = None
         self.refresh_token = None
         self.home_id = None
+        device_ids = ["VA0452158976", "VA3622987264", "VA3857868288"]
+
         
         self.renew_access_tokens()
         
         me = api_call("https://my.tado.com/api/v2/me", self.access_token)
+        print(me)
         self.home_id = me["homes"][0]["id"]
         
         print(self.home_id)
+        
+        # devices = api_call(f"https://my.tado.com/api/v2/homes/{self.home_id}/devices", self.access_token)
+
+        for device in device_ids:
+            offset = api_call(f"https://my.tado.com/api/v2/devices/{device}/temperatureOffset", self.access_token)
+            print(f"Device {device} offset: {offset}")
+            
+            api_call(f"https://my.tado.com/api/v2/devices/{device}/temperatureOffset", self.access_token, r_type="PUT", data={"celsius": -4.0})
+            
+            offset = api_call(f"https://my.tado.com/api/v2/devices/{device}/temperatureOffset", self.access_token)
+            print(f"Device {device} offset: {offset}")
+
+            
+            
+        
         
     
     @staticmethod
