@@ -1,16 +1,19 @@
 [project]
-name =  "my-python-template"
+name =  "tado-temperature-offset"
 authors = [
     {name = "Alexander Carrels"},
 ]
 
-description = "Sample Python Project for creating a new Python Module"
+description = "Tool to set an offset temperature for tado thermostat"
 readme = "README.md"
 version = "0.1.0"
 requires-python = ">=3.8.1"
-
+dependencies = [
+  "python-dotenv>=1.2.1"
+]
 [project.scripts]
-my-sum = "example_package.main:entry_point"
+tado-temperature-offset = "main:main"
+
 
 
 [project.optional-dependencies]
