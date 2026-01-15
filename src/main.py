@@ -1,9 +1,8 @@
 """Provide an exemplary entry point."""
 
 import requests
+import subprocess
 from utils import api_call
-
-
 
 ME_URL = "https://my.tado.com/api/v2/me"
 DEVICES_URL = "https://my.tado.com/api/v2/homes/{}/devices"
@@ -12,6 +11,7 @@ OFFSET_URL = "https://my.tado.com/api/v2/devices/{}/temperatureOffset"
 TOKEN_URL = "https://login.tado.com/oauth2/token"
 CLIENT_ID = "1bb50063-6b0c-4d11-bd99-387f4a91cc46"
 
+BROWSER = "Safari"
 
 class TadoClient():
     def __init__(self):
@@ -46,11 +46,15 @@ class TadoClient():
     def _initiate_device_code_flow():
         response = requests.post(
         "https://login.tado.com/oauth2/device_authorize",
+        timeout=30,
         params=dict(
             client_id=CLIENT_ID,
             scope="offline_access",
         ))
-        print(f"Please visit {response.json()['verification_uri_complete']} to authorize the device.")
+        
+        verifiaction_uri = response.json()['verification_uri_complete']
+        print(f"Please visit {verifiaction_uri} to authorize the device.")
+        subprocess.Popen(["open", "-a", BROWSER, verifiaction_uri])
         device_code = response.json()['device_code']
         print(f"Device code: {device_code}")
         return device_code
