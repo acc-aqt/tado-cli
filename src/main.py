@@ -25,6 +25,23 @@ class TadoClient:
         )
         self.home_id = me_response["homes"][0]["id"]
 
+    def get_thermostat_ids(self) -> list[str]:
+        """Retrieve thermostat device IDs."""
+        devices_response = api_call(
+            f"https://my.tado.com/api/v2/homes/{self.home_id}/devices",
+            self.access_token,
+        )
+
+        thermostat_ids = []
+        for d in devices_response:
+            if not d.get("deviceType", "").startswith("VA"):
+                continue
+            caps = d.get("characteristics", {}).get("capabilities", [])
+            if "INSIDE_TEMPERATURE_MEASUREMENT" in caps:
+                thermostat_ids.append(d["serialNo"])
+
+        return thermostat_ids
+
     def set_temperature_offset(
         self, device: str, offset_value: float = -4.0
     ) -> None:
@@ -86,11 +103,13 @@ class TadoClient:
 def main() -> None:
     """Instantiate TadoClient and set temperature offsets for devices."""
     client = TadoClient()
+    
+    thermostat_ids = client.get_thermostat_ids()
+    
+    print("Thermostat IDs found:", thermostat_ids)
 
-    device_ids = ["VA0452158976", "VA3622987264", "VA3857868288"]
-
-    for device in device_ids:
-        client.set_temperature_offset(device, offset_value=-4.0)
+    for thermostat in thermostat_ids:
+        client.set_temperature_offset(thermostat, offset_value=-4.0)
 
 
 if __name__ == "__main__":
