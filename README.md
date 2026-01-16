@@ -30,7 +30,20 @@ As `my-python-template` is configured as a GitHub-template you can also use this
 
 ## Execution
 
-Call `tado-temperature-offset  --help` to check the required arguments.
+Call `tado-cli  --help` to check the required arguments.
+
+```
+Tado thermostat utilities
+
+positional arguments:
+  {list-thermostats,set-offset}
+    list-thermostats    Print thermostat device IDs
+    set-offset          Set temperature offset on thermostats
+
+options:
+  -h, --help            show this help message and exit
+  ```
+  
 
 ## Development Setup (if needed)
 
