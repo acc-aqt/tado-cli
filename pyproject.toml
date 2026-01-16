@@ -1,10 +1,10 @@
 [project]
-name =  "tado-temperature-offset"
+name =  "tado-cli"
 authors = [
     {name = "Alexander Carrels"},
 ]
 
-description = "Tool to set an offset temperature for tado thermostat"
+description = "Command line interface containing utility functions for tado thermostat system"
 readme = "README.md"
 version = "0.1.0"
 requires-python = ">=3.8.1"
@@ -12,9 +12,7 @@ dependencies = [
   "python-dotenv>=1.2.1"
 ]
 [project.scripts]
-tado-temperature-offset = "main:main"
-
-
+tado-cli = "main:main"
 
 [project.optional-dependencies]
 test = ["pytest", "coverage", "pytest-cov"]
