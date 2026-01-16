@@ -1,10 +1,10 @@
-# tado-temperature-offsrt
+# tado-temperature-offset
 
 ## Description
 
 A small tool to set an offset temperature for tado thermostats, in order to improve temperature control.
-The actual measured temperature of the the thermostat usually is way higher than the aberage room temperatue, as the sensor is placed right next to the heating source.
-to compensate this, a temperature offset added to the temperature measured by the sensor may help.
+The actual measured temperature of the the thermostat usually is way higher than the average room temperatue, as the sensor is placed right next to the heating source.
+To compensate this, a temperature offset added to the temperature measured by the sensor may help.
 
 ## Prerequisites
 Make sure you have `pip` and `python3` installed on your system. You can check by running on the command line:
