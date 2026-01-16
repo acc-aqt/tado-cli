@@ -1,8 +1,10 @@
-# my-python-template
+# tado-temperature-offsrt
 
 ## Description
 
-Template for my python projects.
+A small tool to set an offset temperature for tado thermostats, in order to improve temperature control.
+The actual measured temperature of the the thermostat usually is way higher than the aberage room temperatue, as the sensor is placed right next to the heating source.
+to compensate this, a temperature offset added to the temperature measured by the sensor may help.
 
 ## Prerequisites
 Make sure you have `pip` and `python3` installed on your system. You can check by running on the command line:
@@ -13,6 +15,8 @@ pip --version
 ```
 
 ## Installation
+
+This section needs to be updated!
 
 Clone the repository and install the package using pip:
 
@@ -26,8 +30,7 @@ As `my-python-template` is configured as a GitHub-template you can also use this
 
 ## Execution
 
-An exemplary entry point `my-sum` is configured in the 'pyproject.toml'.
-Call `my-sum  --help` to check the required arguments.
+Call `tado-temperature-offset  --help` to check the required arguments.
 
 ## Development Setup (if needed)
 
