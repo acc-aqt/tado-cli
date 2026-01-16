@@ -16,13 +16,11 @@ pip --version
 
 ## Installation
 
-This section needs to be updated!
-
 Clone the repository and install the package using pip:
 
 ```
-git clone https://github.com/acc-aqt/my-python-template
-cd my-python-template
+git clone git@github.com:acc-aqt/tado-cli.git
+cd tado-cli
 pip install .
 ```
 
