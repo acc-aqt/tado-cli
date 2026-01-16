@@ -1,8 +1,8 @@
-# tado-temperature-offset
+tado-cli
 
 ## Description
 
-A small tool to set an offset temperature for tado thermostats, in order to improve temperature control.
+A command line interface to set an offset temperature for tado thermostats, in order to improve temperature control.
 The actual measured temperature of the the thermostat usually is way higher than the average room temperatue, as the sensor is placed right next to the heating source.
 To compensate this, a temperature offset added to the temperature measured by the sensor may help.
 
