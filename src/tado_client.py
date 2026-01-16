@@ -8,10 +8,11 @@ from utils import api_call
 
 BROWSER = "Safari"
 
+
 class TadoClient:
     """Client for Tado API interactions."""
-    
-    CLIENT_ID = "1bb50063-6b0c-4d11-bd99-387f4a91cc46" # Public client ID, does not need to be secret
+
+    CLIENT_ID = "1bb50063-6b0c-4d11-bd99-387f4a91cc46"  # Public client ID, does not need to be secret
 
     def __init__(self) -> None:
         self.access_token = None
@@ -75,7 +76,10 @@ class TadoClient:
         response = requests.post(
             "https://login.tado.com/oauth2/device_authorize",
             timeout=30,
-            params={"client_id": TadoClient.CLIENT_ID, "scope": "offline_access"},
+            params={
+                "client_id": TadoClient.CLIENT_ID,
+                "scope": "offline_access",
+            },
         )
 
         verifiaction_uri = response.json()["verification_uri_complete"]

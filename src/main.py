@@ -1,13 +1,12 @@
 """Contains CLI entry points for Tado thermostat utilities."""
+
 import argparse
 
 from tado_client import TadoClient
 
 
-
 def list_thermostats(_: argparse.Namespace) -> None:
     """List thermostat device IDs."""
-    
     client = TadoClient()
     for tid in client.get_thermostat_ids():
         print(tid)
@@ -25,10 +24,7 @@ def set_offset(args: argparse.Namespace) -> None:
 
 def main() -> None:
     """Set up CLI argument parsing and dispatch to appropriate functions."""
-    
-    parser = argparse.ArgumentParser(
-        description="Tado thermostat utilities"
-    )
+    parser = argparse.ArgumentParser(description="Tado thermostat utilities")
     subparsers = parser.add_subparsers(required=True)
 
     # list-thermostats
@@ -62,4 +58,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-    
