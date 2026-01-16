@@ -1,4 +1,4 @@
-### tado-cli
+# tado-cli
 
 ## Description
 
