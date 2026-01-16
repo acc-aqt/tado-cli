@@ -24,8 +24,6 @@ cd tado-cli
 pip install .
 ```
 
-As `my-python-template` is configured as a GitHub-template you can also use this template by clicking "use this template" on the GitHub page.
-
 ## Execution
 
 Call `tado-cli  --help` to check the required arguments.
